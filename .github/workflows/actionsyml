@@ -1,0 +1,34 @@
+name: flutter_integration_test
+
+on:
+  push:
+  workflow_dispatch:
+
+jobs:
+  integration_test_iOS:
+    runs-on: macos-latest
+    steps:
+      - uses: actions/checkout@v2
+      - uses: futureware-tech/simulator-action@v1
+        with: 
+          model: 'iPhone 8'
+      - uses: subosito/flutter-action@v1
+        with:
+          flutter-version: '2.2.0'
+          channel: 'stable'
+      - name: "Run Flutter Integration tests"
+        run: "flutter test integration_test"
+
+  integration_test_Android:
+    runs-on: macos-latest
+    steps:
+      - uses: actions/checkout@v2
+      - uses: subosito/flutter-action@v1
+        with:
+          flutter-version: '2.2.0'
+          channel: 'stable'
+      - name: boot Android Emulator And Run Flutter Integration tests
+        uses: reactivecircus/android-emulator-runner@v2
+        with:
+          api-level: 29
+          script: "flutter test integration_test"

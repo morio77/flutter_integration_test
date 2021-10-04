@@ -19,8 +19,8 @@ void main() {
     await tester.pumpAndSettle();
     expect(find.text('1'), findsOneWidget);
 
-    // その後20回タップしたら'101'になっていることを確認
-    for (var i = 0; i < 100; i++) {
+    // その後20回タップしたら'21'になっていることを確認
+    for (var i = 0; i < 20; i++) {
       await tester.tap(find.byKey(const Key('button')));
       await tester.pumpAndSettle();
     }

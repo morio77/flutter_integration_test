@@ -37,6 +37,7 @@ class _MyHomePageState extends State<MyHomePage> {
 
             // ページ移動ボタン部分
             TextButton(
+              key: const Key('listViewPageButton'),
               onPressed: () =>
                   Navigator.of(context).pushNamed(ListViewPage.routeName),
               child: const Text('ListViewページへ移動'),

@@ -27,8 +27,8 @@ class _ListViewPageState extends State<ListViewPage> {
         key: const Key('floatingActionButton'),
         onPressed: () {
           setState(() {
-            _titleList.add(_listItem(_itemCount.toString()));
             _itemCount++;
+            _titleList.add(_listItem(_itemCount.toString()));
           });
         },
         child: const Icon(Icons.add),
